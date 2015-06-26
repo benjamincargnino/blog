@@ -31,7 +31,11 @@ if (empty($_POST) == false)
 	if(empty($_POST["score"])) 
 	{
 		array_push($error, "Veuillez noter cet article");
-	} 
+	}  else if(empty($_POST['score']) == false && ($_POST['score'] < "0" || $_POST["score"] > "5"))
+			{
+				array_push($errors, "Veuillez choisir une note valide");
+			}
+
 
 	if(empty($_POST["contenu"])) 
 	{
@@ -53,7 +57,7 @@ if (empty($_POST) == false)
 };
 
 
-$sql = "SELECT * FROM commentaire WHERE id_article=$idarticle";
+$sql = "SELECT * FROM commentaire WHERE id_article=$idarticle ORDER BY date_commentaire DESC";
 $requete = $connect->prepare($sql);
 $requete->execute();
 $comment=$requete->fetchAll();

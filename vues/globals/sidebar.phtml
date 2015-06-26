@@ -1,3 +1,13 @@
+ <?php
+
+$sql = "SELECT * FROM categorie";
+$requete = $connect->prepare($sql);
+$requete->execute();
+$sidebarcategories=$requete->fetchAll();
+
+
+ ?>
+
  <div class="col-md-4">
 
                 <!-- Blog Search Well -->
@@ -19,29 +29,12 @@
                     <h4>Blog Categories</h4>
                     <div class="row">
                         <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
+                            <?php foreach ($sidebarcategories as $key => $value): ?>
+                             <ul class="list-unstyled">
+                                <li><a href="index.php?page=unecategorie&id=<?php echo $value['id'] ?>"><?php echo $value["titre"] ?></a>
                             </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
+                    
+                            <?php endforeach;?>
                         </div>
                         <!-- /.col-lg-6 -->
                     </div>

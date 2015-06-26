@@ -1,0 +1,40 @@
+<?php include "globals/header.phtml" ?>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron hero-spacer">
+        <h1><?php echo $unecategorie['titre']; ?></h1>    
+    </header>
+
+    <hr>
+
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Latest Articles</h3>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Page Features -->
+    <div class="row text-center">
+<?php foreach ($articlescategorie as $key => $value): ?>
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <a href="index.php?page=article&id=<?php echo $value['id'] ?>"><img src="vues/images/<?php echo $value["image"] ?>" alt="">
+                <div class="caption">
+                    <h3><?php echo $value["titre"] ?></h3>
+                      </a>
+                    <p><?php echo $value["description"] ?></p>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>            
+</div>
+<!-- /.row -->
+
+<hr>
+
+<?php include "globals/footer.phtml" ?>
