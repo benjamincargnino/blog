@@ -13,7 +13,7 @@
                 </h1>
 <?php foreach ($article as $key => $value): ?>
                 <h2>
-                    <a href="#"><?php echo $value["titre"] ?></a>
+                    <a href="index.php?page=article&id=<?php echo $value['id'] ?>"><?php echo $value["titre"] ?></a>
                 </h2>
                 <p class="lead">
                     by <a href="index.php"><?php echo $value["auteur"] ?></a>

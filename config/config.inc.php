@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 //////////////////////////////////////////////////////////////////////// BLOC DE CODE LIAISON PHP ET MYSQL
 $datasource = "mysql:host=localhost;dbname=blog;charset=utf8";
 $login ="root";

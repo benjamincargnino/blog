@@ -20,6 +20,10 @@
     <link href="<?=root_css;?>blog-post.css" rel="stylesheet">
 <?php endif; ?> 
 
+<?php if($currentPage == "connexion" || $currentpage= "ajoutarticle"): ?>
+    <link href="<?=root_css;?>signin.css" rel="stylesheet">
+<?php endif; ?> 
+
     <link href="<?=root_css;?>blog-home.css" rel="stylesheet">
 
 <?php if($currentPage == "unecategorie"):?>
@@ -54,13 +58,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="index.php?page=connexion">Connexion</a>
                     </li>
                     <li>
                         <a href="index.php?page=categories">Categories</a>
                     </li>
                     <li>
-                        <a href="index.php?page=contact">Contact</a>
+                        <a href="index.php?page=favoris">Favoris</a>
+                    </li>
+                     <li>
+                        <a href="index.php?page=ajoutarticle">Ajouter article</a>
                     </li>
                 </ul>
             </div>

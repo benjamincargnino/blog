@@ -1,0 +1,25 @@
+<?php include("globals/header.phtml"); ?>
+
+	<h1> Ajouter un article </h1>
+	<form class="ajoutarticle" enctype="multipart/form-data" method="POST">
+		<label>Titre : </label><input type="text" name="titre" placeholder="titre">
+		<br>
+		<label>Description : </label><input type="textarea" name="description" placeholder="Description">
+		<br>
+		<label>Date : </label><input type="date" name="date">
+		<br>
+		<label>Auteur : </label><input type="text" name="auteur">
+		<br>
+		<label> Catégories : </label>
+		<select name="categories">
+			<?php foreach ($categories as $key => $value): ?> 
+			<option value="<?php echo $value["id"] ?>"><?php echo $value["titre"] ?></option>
+			<?php endforeach; ?>
+		</select>
+		<br>
+		<label>Image : </label><input type="file" name="image">
+		<hr>
+		<button> Submit </button>
+	</form>
+</body>
+</html>
