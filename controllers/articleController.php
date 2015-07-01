@@ -1,5 +1,9 @@
 <?php
 
+require_once __DIR__."/../model/articleClass.php";
+require_once __DIR__."/../model/commentaireClass.php";
+
+
 if(empty($_GET["id"]) == true)
 {
 	header("Location: index.php");
@@ -10,7 +14,8 @@ $idarticle = $_GET["id"];
 $sql = "SELECT * FROM article WHERE id=$idarticle";
 $requete = $connect->prepare($sql);
 $requete->execute();
-$readmore=$requete->fetch();
+$requete->setFetchMode(PDO::FETCH_CLASS, "article");
+$readmore=$requete->fetch(PDO::FETCH_CLASS);
 
 if(empty($readmore) == true) 
 {
@@ -60,4 +65,4 @@ if (empty($_POST) == false)
 $sql = "SELECT * FROM commentaire WHERE id_article=$idarticle ORDER BY date_commentaire DESC";
 $requete = $connect->prepare($sql);
 $requete->execute();
-$comment=$requete->fetchAll();
+$comment=$requete->fetchAll(PDO::FETCH_CLASS, "commentaire");

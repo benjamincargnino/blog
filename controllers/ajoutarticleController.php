@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__."/../model/categorieClass.php";
 
 if(empty($_SESSION["logged"]) == true)
 {
@@ -9,7 +10,7 @@ if(empty($_SESSION["logged"]) == true)
 $sql = "SELECT * FROM categorie WHERE 1";
 $requete = $connect->prepare($sql);
 $requete->execute();
-$categories=$requete->fetchAll();
+$categories=$requete->fetchAll(PDO::FETCH_CLASS, "categorie");
 
 ////////////////////////////////////////////// TEST ERRORS /////////////////////////////////////////////////////
 

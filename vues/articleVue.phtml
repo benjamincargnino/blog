@@ -12,28 +12,28 @@
 			<!-- Blog Post -->
 
 			<!-- Title -->
-			<h1><?php echo $readmore["titre"] ?></h1>
-			<a href="index.php?page=ajouterfavoris&id=<?php echo $readmore['id'] ?>"> Ajouter aux favoris </a> 
+			<h1><?php echo $readmore->getTitre() ?></h1>
+			<a href="index.php?page=ajouterfavoris&id=<?php echo $readmore->getId() ?>"> Ajouter aux favoris </a>
 
 			<!-- Author -->
 			<p class="lead">
-				by <a href="#"><?php echo $readmore["auteur"] ?></a>
+				by <a href="#"><?php echo $readmore->getAuteur() ?></a>
 			</p>
 
 			<hr>
 
 			<!-- Date/Time -->
-			<p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $readmore["date_article"] ?></p>
+			<p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $readmore->getDateArticle() ?></p>
 
 			<hr>
 
 			<!-- Preview Image -->
-			<img class="img-responsive" src="vues/images/<?php echo $readmore["image"] ?>" alt="">
+			<img class="img-responsive" src="vues/images/<?php echo $readmore->getImage() ?>" alt="">
 
 			<hr>
 
 			<!-- Post Content -->
-			<p class="lead"><?php echo $readmore["description"] ?></p>
+			<p class="lead"><?php echo $readmore->getDescription() ?></p>
 
 			<hr>
 
@@ -83,12 +83,12 @@
 				</a>
 
 				<div class="media-body">
-					<h4 class="media-heading"><?php echo $value["auteur"] ?>
-						<small><?php echo $value["date_commentaire"] ?></small>
+					<h4 class="media-heading"><?php echo $value->getAuteur() ?>
+						<small><?php echo $value->getDateCommentaire() ?></small>
 					</h4>
-					<div class="starscom" data-score="<?php echo $value["note"] ?>">
+					<div class="starscom" data-score="<?php echo $value->getNote() ?>">
 					</div>
-					<?php echo htmlentities($value["contenu"]) ?>
+					<?php echo htmlentities($value->getContenu()) ?>
 
 				</div>
 			</div>

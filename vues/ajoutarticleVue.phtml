@@ -13,7 +13,7 @@
 		<label> Catégories : </label>
 		<select name="categories">
 			<?php foreach ($categories as $key => $value): ?> 
-			<option value="<?php echo $value["id"] ?>"><?php echo $value["titre"] ?></option>
+			<option value="<?php echo $value->getId() ?>"><?php echo $value->getTitre() ?></option>
 			<?php endforeach; ?>
 		</select>
 		<br>

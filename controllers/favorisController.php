@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__."/../model/articleClass.php";
+
 if(empty($_GET["supprimer"]) == false)
 {
 	setcookie("favoris", null, -1, "/");
@@ -13,12 +15,10 @@ if(empty($_COOKIE["favoris"]) == false) {
 	$idfavoris = unserialize($_COOKIE["favoris"]);
 	$test = implode(", ", $idfavoris);
 
-	//echo $test;
-
 	$sql = "SELECT * FROM article WHERE id IN($test)";
 	$requete = $connect->prepare($sql);
 	$requete->execute();
-	$articlefavoris=$requete->fetchAll();
+	$articlefavoris=$requete->fetchAll(PDO::FETCH_CLASS, "article");
 };
 
 // var_dump($_COOKIE);

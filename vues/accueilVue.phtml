@@ -13,16 +13,16 @@
                 </h1>
 <?php foreach ($article as $key => $value): ?>
                 <h2>
-                    <a href="index.php?page=article&id=<?php echo $value['id'] ?>"><?php echo $value["titre"] ?></a>
+                    <a href="index.php?page=article&id=<?php echo $value->getId() ?>"><?php echo $value->getTitre() ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"><?php echo $value["auteur"] ?></a>
+                    by <a href="index.php"><?php echo $value->getAuteur() ?></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $value["date_article"] ?></p>
-                <img class="img-responsive" src="vues/images/<?php echo $value["image"] ?>" alt="">
+                <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $value->getDateArticle() ?></p>
+                <img class="img-responsive" src="vues/images/<?php echo $value->getImage() ?>" alt="">
                 <hr>
-                <p><?php echo $value["description"] ?></p>
-                <a class="btn btn-primary" href="index.php?page=article&id=<?php echo $value['id'] ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <p><?php echo $value->getDescription() ?></p>
+                <a class="btn btn-primary" href="index.php?page=article&id=<?php echo $value->getId() ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 <?php endforeach; ?>
                 <hr>
                 <!-- Pager -->

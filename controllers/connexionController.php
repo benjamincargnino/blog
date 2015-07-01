@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+require_once __DIR__."/../model/utilisateurClass.php";
 
 	$error=[];
 
@@ -26,7 +28,8 @@ if (empty($_POST) == false)
 		$requete->bindValue(":mail", $_POST["login"]);
 		$requete->bindValue(":mdp", sha1($_POST["password"]));
 		$requete->execute();
-		$user=$requete->fetch();
+        $requete->setFetchMode(PDO::FETCH_CLASS, "utilisateur");
+		$user=$requete->fetch(PDO::FETCH_CLASS);
 		if(empty($user) == false)
 			{
 				$_SESSION["logged"] = $user;

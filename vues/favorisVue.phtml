@@ -14,27 +14,27 @@
 			<?php foreach ($articlefavoris as $key => $value): ?>
 
 			<!-- Title -->
-			<a href="index.php?page=article&id=<?php echo $value['id'] ?>"><h1><?php echo $value["titre"] ?></h1></a>
+			<a href="index.php?page=article&id=<?php echo $value->getId() ?>"><h1><?php echo $value->getTitre() ?></h1></a>
 
 			<!-- Author -->
 			<p class="lead">
-				by <a href="#"><?php echo $value["auteur"] ?></a>
+				by <a href="#"><?php echo $value->getAuteur() ?></a>
 			</p>
 
 			<hr>
 
 			<!-- Date/Time -->
-			<p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $value["date_article"] ?></p>
+			<p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $value->getDateArticle() ?></p>
 
 			<hr>
 
 			<!-- Preview Image -->
-			<img class="img-responsive" src="vues/images/<?php echo $value["image"] ?>" alt="">
+			<img class="img-responsive" src="vues/images/<?php echo $value->getImage() ?>" alt="">
 
 			<hr>
 
 			<!-- Post Content -->
-			<p class="lead"><?php echo $value["description"] ?></p>
+			<p class="lead"><?php echo $value->getDescription() ?></p>
 
 		<?php endforeach; ?>
 		</div> <!-- col-8 -->
